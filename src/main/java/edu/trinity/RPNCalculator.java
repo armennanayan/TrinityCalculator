@@ -1,7 +1,7 @@
 package edu.trinity;
 
-import java.util.EmptyStackException;
 import java.util.Stack;
+import java.util.EmptyStackException;
 
 public class RPNCalculator {
 
