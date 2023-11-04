@@ -44,4 +44,6 @@ public interface MemberDAO {
     Map<House, Long> numberOfMembersByHouse();
 
     Map<House, DoubleSummaryStatistics> houseStats();
+
+    Map.Entry<House,Double> richestHouse();
 }

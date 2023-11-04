@@ -173,4 +173,15 @@ public class InMemoryMemberDAO implements MemberDAO {
         return map_4;
     }
 
+    /**
+     * Get the richest house
+     */
+    public Map.Entry<House,Double> richestHouse() {
+        Map<House, Double> map_5 = allMembers.stream().collect(Collectors.groupingBy(Member::house, Collectors.summingDouble(Member::salary)));
+        Map.Entry<House, Double> richestHouse = map_5.entrySet().stream().max(Map.Entry.comparingByValue()).orElse(null);
+        return richestHouse;
+    }
+
+
+
 }

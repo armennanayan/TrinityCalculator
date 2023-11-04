@@ -8,6 +8,7 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class InMemoryMemberDAOTests {
@@ -211,5 +212,12 @@ public class InMemoryMemberDAOTests {
                 () -> assertThat(stats.get(House.STARK).getAverage())
                         .isCloseTo(66666.66, withinPercentage(0.01))
         );
+    }
+
+    @Test
+    public void richestHouse() {
+        Map.Entry<House, Double> richestHouse = dao.richestHouse();
+        assertEquals(House.LANNISTER, richestHouse.getKey());
+        assertEquals(510000.0, richestHouse.getValue());
     }
 }
