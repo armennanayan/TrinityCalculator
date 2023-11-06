@@ -32,7 +32,7 @@ public class InMemoryMemberDAO implements MemberDAO {
      */
     @Override
     public List<Member> startWithSandSortAlphabetically() {
-        return allMembers.stream().filter(member -> member.name().startsWith("S")).sorted().toList();
+        return allMembers.stream().filter(member -> member.name().startsWith("S")).sorted(Comparator.comparing(Member::id)).toList();
     }
 
     /**
