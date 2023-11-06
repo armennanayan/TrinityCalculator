@@ -56,7 +56,7 @@ public class InMemoryMemberDAO implements MemberDAO {
      */
     @Override
     public List<Member> sortByHouseNameThenSortByNameDesc() {
-        return allMembers.stream().sorted(Comparator.comparing(Member::house)).sorted(Comparator.comparing(Member::house)).toList();
+        return allMembers.stream().sorted(Comparator.comparing(Member::house)).sorted(Comparator.comparing(Member::name).reversed()).toList();
     }
 
     /**
